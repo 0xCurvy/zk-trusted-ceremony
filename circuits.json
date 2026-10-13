@@ -1,0 +1,921 @@
+{
+  "ceremony": {
+    "protocol": "groth16",
+    "curve": "bn128",
+    "snarkjs": "0.7.6",
+    "firstContribution": "2026-09-29T09:04:03Z",
+    "lastContribution": "2026-09-29T10:25:05Z",
+    "beacon": null,
+    "assetsBaseUrl": "https://github.com/0xCurvy/zk-trusted-ceremony/releases/download/v1"
+  },
+  "source": {
+    "repository": "0xCurvy/curvy-monorepo (private), packages/zk-circuits",
+    "commit": "9e473d1521977149bf4b8c0c0be5ca131357403c",
+    "compiler": "circom 2.2.3",
+    "flags": "--r1cs --O2",
+    "notes": "verifyPixAggregation_2_7_30 and verifyPixMultiOwnerWithdrawal_5_30 have no instance file in the repository: the templates assert their production size (maxOutputs == 9, maxInputs == 10), and these two smaller profiles were compiled with that assert widened to also accept 7 and 5."
+  },
+  "networks": {
+    "gnosis": {
+      "chainId": 100,
+      "rpc": "https://rpc.gnosischain.com",
+      "explorer": "https://gnosisscan.io/address/"
+    }
+  },
+  "phase1": {
+    "ppot_0080_15.ptau": {
+      "power": 15,
+      "url": "https://pse-trusted-setup-ppot.s3.eu-central-1.amazonaws.com/pot28_0080/ppot_0080_15.ptau",
+      "sha256": "4a8eb5a754ed4710d6ad603c2e1a89c72325a448e4474f8694d2c71c7c272f3d",
+      "bytes": 37842066
+    },
+    "ppot_0080_16.ptau": {
+      "power": 16,
+      "url": "https://pse-trusted-setup-ppot.s3.eu-central-1.amazonaws.com/pot28_0080/ppot_0080_16.ptau",
+      "sha256": "ed3622a7c79b0b49aadd134ebbc5b77df8c8c59bccebdfd0d9bf2c1a51561cf9",
+      "bytes": 75590802
+    },
+    "ppot_0080_17.ptau": {
+      "power": 17,
+      "url": "https://pse-trusted-setup-ppot.s3.eu-central-1.amazonaws.com/pot28_0080/ppot_0080_17.ptau",
+      "sha256": "f807e065fde53f72f4bf4d57140fab85b26daa6cc95bdfec7cce93622b3a367c",
+      "bytes": 151088274
+    },
+    "ppot_0080_18.ptau": {
+      "power": 18,
+      "url": "https://pse-trusted-setup-ppot.s3.eu-central-1.amazonaws.com/pot28_0080/ppot_0080_18.ptau",
+      "sha256": "9693220206afab749e3d88d4ab5fdf5d36120ea102e7e587ccea0e7a5208e711",
+      "bytes": 302083218
+    },
+    "ppot_0080_19.ptau": {
+      "power": 19,
+      "url": "https://pse-trusted-setup-ppot.s3.eu-central-1.amazonaws.com/pot28_0080/ppot_0080_19.ptau",
+      "sha256": "d0cadfb7d5bad6c5e0b012fb1c4bbaa3cc98fe249988f9f99d1818175e4c2015",
+      "bytes": 604073106
+    },
+    "ppot_0080_20.ptau": {
+      "power": 20,
+      "url": "https://pse-trusted-setup-ppot.s3.eu-central-1.amazonaws.com/pot28_0080/ppot_0080_20.ptau",
+      "sha256": "560412532a1205145d5f21585274fb2cef61273496ddc7186aec855aab01a8cd",
+      "bytes": 1208052882
+    },
+    "ppot_0080_21.ptau": {
+      "power": 21,
+      "url": "https://pse-trusted-setup-ppot.s3.eu-central-1.amazonaws.com/pot28_0080/ppot_0080_21.ptau",
+      "sha256": "b4131202088141088d83fc05d654a142b51117df0960568613069e0719e7645a",
+      "bytes": 2416012434
+    }
+  },
+  "circuits": [
+    {
+      "name": "verifySingleWithdrawal_2_30",
+      "source": "circuits/v2/instances/verifySingleWithdrawalNoHashing_2_30.circom",
+      "constraints": 21498,
+      "wires": 21502,
+      "publicInputs": 3,
+      "privateInputs": 77,
+      "outputs": 3,
+      "r1cs": {
+        "file": "verifySingleWithdrawal_2_30.r1cs",
+        "sha256": "4b105f8650463b07b26f1798ffa7b6e9a9290863c2faf016615577e5cce5dd5a",
+        "bytes": 9266520
+      },
+      "phase1": "ppot_0080_15.ptau",
+      "circuitHash": "0d7fac70b536cec4ceab7ec035876469f159ed8031a2ad52cbab94b3da1452a6d154fdf5f8777f706e5289f181e4ff20eb2811360e16dd9f6eb473eebf00eece",
+      "finalZkey": {
+        "file": "verifySingleWithdrawal_2_30_final.zkey",
+        "sha256": "a241bb706a69de18a6c95d6b83fc06012adc2a0e3cb7ac8688fe0fdce603f564",
+        "bytes": 13259699
+      },
+      "verificationKey": {
+        "file": "circuits/verifySingleWithdrawal_2_30/verification_key.json",
+        "sha256": "dee2e0f75e21ddcf490e9b19274d2a658840c86aca2d3413a0e838d7d61da1f0"
+      },
+      "verifier": {
+        "file": "circuits/verifySingleWithdrawal_2_30/verifier.sol",
+        "sha256": "8c245710211eaa6369f8fedda8c66164fb4b3b5575bd9709db5fda96a7038a86"
+      },
+      "deployments": [
+        {
+          "network": "gnosis",
+          "address": "0xc5d40f6A6e23DfAC7980292211BDdFF3629B26ad"
+        }
+      ],
+      "contributions": [
+        {
+          "order": 1,
+          "name": "Lukas",
+          "participant": "Lukas",
+          "submittedAt": "2026-09-29T09:04:07Z",
+          "contributionHash": "776e3f747d11feb3620787f688e20d016cc57b68485575903133bef0ae086c5c8e7e3ab0e7d0d7c9d7881aabea9d7fedb8ebdbbd9b5115cfc277d01f6b6f9f04",
+          "zkeySha256": "ce7e10ddd245763702d7ef9d239845d6ecbafb155a5163c14d905bf14259b7a4"
+        },
+        {
+          "order": 2,
+          "name": "Tino",
+          "participant": "Tino",
+          "submittedAt": "2026-09-29T09:04:52Z",
+          "contributionHash": "ae8df4fefc024a850ad5381b87494741909c8fc76db5f7fc0b61675d3987f15f0534d82e5eafdfa57a15e7783851dfcd3735de74402505d9fa6f3684196358a4",
+          "zkeySha256": "1e3f7606c3ccfaadd62a225417a87b86eb5bb9ea49e3981b4445856f96495bf6"
+        },
+        {
+          "order": 3,
+          "name": "q",
+          "participant": "Qianchen",
+          "submittedAt": "2026-09-29T09:06:20Z",
+          "contributionHash": "e693558e669a1326f7460478e26b437767a5fde953fdede7a855f2c3df96b3c04c537fadea329e69bda03ba2f374645080df15c03498d92dc39950051e72475a",
+          "zkeySha256": "f29215cc4da16891aa9a6f2cffba44964b997be10e07c93a1c22af7bc1ee5c5b"
+        },
+        {
+          "order": 4,
+          "name": "lazar",
+          "participant": "Lazar",
+          "submittedAt": "2026-09-29T09:08:37Z",
+          "contributionHash": "6e1baa2b85915eab9224113538c7ee5709e42d46b51a4d6353abd683b63c5b14d2c1bb388e25eab6cf0e9058189e7afc983ecae2b9363283f79ada9d678896f9",
+          "zkeySha256": "444ec48fa974559b37e1d668da715f143800f37c4b66798621f4d61597675e11"
+        },
+        {
+          "order": 5,
+          "name": "Mihailo",
+          "participant": "Mihailo",
+          "submittedAt": "2026-09-29T09:10:45Z",
+          "contributionHash": "aee41577d385596e478a0a797dc5c98ea0d0360d2f30840df752f4f985fd3d72e7bbeaaa66e4cc85fe0730130e500f3568edeadd4391a937d2234223b9280de9",
+          "zkeySha256": "26b37bf0f4c152605ff640684bac49d837c3d15e36b92f67032ac565931527be"
+        },
+        {
+          "order": 6,
+          "name": "Vanja",
+          "participant": "Vanja",
+          "submittedAt": "2026-09-29T09:17:39Z",
+          "contributionHash": "69b705ef5fd438e0750473b266841196b0416404a9cb44c4615cc2f7f858f5f505101d15c6373492ba53c9e0e7d3151a9bed6f43cc13fb601826db0afc061f1e",
+          "zkeySha256": "a241bb706a69de18a6c95d6b83fc06012adc2a0e3cb7ac8688fe0fdce603f564"
+        }
+      ]
+    },
+    {
+      "name": "verifySingleAggregation_2_3_30",
+      "source": "circuits/v2/instances/verifySingleAggregationNoHashing_2_3_30.circom",
+      "constraints": 27412,
+      "wires": 27444,
+      "publicInputs": 25,
+      "privateInputs": 104,
+      "outputs": 6,
+      "r1cs": {
+        "file": "verifySingleAggregation_2_3_30.r1cs",
+        "sha256": "fdbf71a667f3deff6f76b7ef959fbb92447eff0afb2d4b9c230b341636e626b8",
+        "bytes": 11665552
+      },
+      "phase1": "ppot_0080_15.ptau",
+      "circuitHash": "0d829193ffd90c4bb52d66588c9fd61ddb8801a38ddc5c6e33d7db613cd228e62cb907f35a54cfc67b7af046d0582089a3e5c0b253f4193fd3078ae0d4051b26",
+      "finalZkey": {
+        "file": "verifySingleAggregation_2_3_30_final.zkey",
+        "sha256": "c4a15849fa57c19dd4fd43a63e60a4c902a6847310e95137b69aa895307182e6",
+        "bytes": 16453683
+      },
+      "verificationKey": {
+        "file": "circuits/verifySingleAggregation_2_3_30/verification_key.json",
+        "sha256": "5f8e984dfd6f52ad44bae1b34921f4a6b393daac3f4fa748df121bd7353264dd"
+      },
+      "verifier": {
+        "file": "circuits/verifySingleAggregation_2_3_30/verifier.sol",
+        "sha256": "b9130811b1939f77b99b9fce04963566cdc07c8cfa133e874ac850652071cedf"
+      },
+      "deployments": [
+        {
+          "network": "gnosis",
+          "address": "0x3E0A6971e473F1D52Cc8dCFb042B685c157c2cc9"
+        }
+      ],
+      "contributions": [
+        {
+          "order": 1,
+          "name": "Lukas",
+          "participant": "Lukas",
+          "submittedAt": "2026-09-29T09:04:12Z",
+          "contributionHash": "911eeecc6890f76fa22fd479a90dadf0f461bb0dd5e8d9123e30f7a1891b2977c6ab34a766126c5fb683ff463069f22b436199799defcd479b92d86ef3292832",
+          "zkeySha256": "e212050337180ceb164e17988cb43739161874a1ebdca41ccc486bdff3463c10"
+        },
+        {
+          "order": 2,
+          "name": "Tino",
+          "participant": "Tino",
+          "submittedAt": "2026-09-29T09:05:01Z",
+          "contributionHash": "dabd924cf436c2e0f9800507d457fa99129b052f491fb23dcf7f24101d69be5e734ab2469fdd0f241de190919c12effb799896b993615a4a09eee36f99b60a8e",
+          "zkeySha256": "1f87404b933f50528a9f5078218c0ae20c03cf0cccbe8dcf34bf6cb3f926bd4b"
+        },
+        {
+          "order": 3,
+          "name": "q",
+          "participant": "Qianchen",
+          "submittedAt": "2026-09-29T09:06:31Z",
+          "contributionHash": "7b972bc3263377d17810efb9a4e0851b3923685449ee0ae7a99db041b808605dee83d29f1428748b5dfbf3ef5513754710adcb84a08a67cf017e514d853511e7",
+          "zkeySha256": "80bb5721ece7045903bd20a1e484b9eea65633d9486eb276c5b859ff399ee067"
+        },
+        {
+          "order": 4,
+          "name": "lazar",
+          "participant": "Lazar",
+          "submittedAt": "2026-09-29T09:09:13Z",
+          "contributionHash": "88475458b2c9900d26246c1e5479e9f7a50c8154f6dd63778675cc0643e8195d13cf440a5e3f1cc60b2d5f48feace50c4e79bb15dcb795f3e46384b20d002416",
+          "zkeySha256": "5ea95bdc73852281dd54a340b868deb1cd07d44facee6ae181015106196dd969"
+        },
+        {
+          "order": 5,
+          "name": "Mihailo",
+          "participant": "Mihailo",
+          "submittedAt": "2026-09-29T09:11:08Z",
+          "contributionHash": "bcf298fb7957ee425ec2ffd9d1179288d25225618c6599649e20d8868a4a2f434135747360ed8615594323969fdd174965b1c372bac5799250354dda9558cc76",
+          "zkeySha256": "d85b7827c421c0763afd5f6dd81cebcb78a2255260b1be557895358553b4f5da"
+        },
+        {
+          "order": 6,
+          "name": "Vanja",
+          "participant": "Vanja",
+          "submittedAt": "2026-09-29T09:18:01Z",
+          "contributionHash": "94b7344cc09ac3264590de8b684bc4fe2128fd31835956f5f8734eaa479fce342cba4fcbc73df8334a3790d0c44c4bda64395e995c41b21dba4e508e77454bdb",
+          "zkeySha256": "c4a15849fa57c19dd4fd43a63e60a4c902a6847310e95137b69aa895307182e6"
+        }
+      ]
+    },
+    {
+      "name": "verifyPixAggregation_2_7_30",
+      "source": "circuits/v2/instances/verifyPixAggregation_2_7_30.circom",
+      "constraints": 51249,
+      "wires": 51283,
+      "publicInputs": 45,
+      "privateInputs": 124,
+      "outputs": 10,
+      "r1cs": {
+        "file": "verifyPixAggregation_2_7_30.r1cs",
+        "sha256": "ce6f4f8feb22656467beb46df1cf58261b38dd8280e654a5bf8ecd25bbc5c520",
+        "bytes": 19039332
+      },
+      "phase1": "ppot_0080_16.ptau",
+      "circuitHash": "2db41905f445d967ebee98f91563aec8167bf23733756e353cf87fedf0cc497ad839ee026d7c8fc5794c39d8a2e4b8dc85ca8591973ee5c6975c6d680a038a0c",
+      "finalZkey": {
+        "file": "verifyPixAggregation_2_7_30_final.zkey",
+        "sha256": "79c6fd6a5eff0fe5688058dcdadd8f2b2b81a094e4c0ff1ac3c1b80aa8a17995",
+        "bytes": 31718959
+      },
+      "verificationKey": {
+        "file": "circuits/verifyPixAggregation_2_7_30/verification_key.json",
+        "sha256": "2abcc032e1993e0aac031e9be854c7f87989877d29be9a5eb08b4aae08e1bf65"
+      },
+      "verifier": {
+        "file": "circuits/verifyPixAggregation_2_7_30/verifier.sol",
+        "sha256": "d39c946db08b343a816663ea5bedf7d7217450aa6dfe34c8ef51508f36e302ac"
+      },
+      "deployments": [
+        {
+          "network": "gnosis",
+          "address": "0x874613A4224025aD7c9350f068fa603724050b7f"
+        }
+      ],
+      "contributions": [
+        {
+          "order": 1,
+          "name": "Lukas",
+          "participant": "Lukas",
+          "submittedAt": "2026-09-29T09:04:21Z",
+          "contributionHash": "3be77ad50e6a7528ba2b72a9e1459bc42d3bd02e7b35220c30e11bf9765b64545d1e8b4eaa6aa5a91d121e1a8a4154e51406b3221f047036f573f2acdcf2b236",
+          "zkeySha256": "ce3d82f8f7457d696dfc308a3e9a79ab115982387d647af19088465c930c5d21"
+        },
+        {
+          "order": 2,
+          "name": "q",
+          "participant": "Qianchen",
+          "submittedAt": "2026-09-29T09:05:21Z",
+          "contributionHash": "2f3fa532311dc28b62f6a337ef4cde27b81d7c3611747fb6dc091e75ce17b847c1d2061b0903552a6c8180b0cff09f849f93ea8c0331f06082e3a03126956879",
+          "zkeySha256": "364b2dc83b72dac0b44d4eec2bc9a8c5b0202e18e86ff3f13c99a9b05c86398a"
+        },
+        {
+          "order": 3,
+          "name": "Tino",
+          "participant": "Tino",
+          "submittedAt": "2026-09-29T09:05:41Z",
+          "contributionHash": "cacca4528d2dc9bda09c0c4d58bffb2c27be81b7d2f19e257604e30f0ede3885484200f221f1ec482f889be9cf9d641b8e2c841852920fa15cb423f74898878a",
+          "zkeySha256": "e19367de8ee7e9ec2905afa66bb02bedb1b2f7b7e10996cf316e28ef1573d2bc"
+        },
+        {
+          "order": 4,
+          "name": "lazar",
+          "participant": "Lazar",
+          "submittedAt": "2026-09-29T09:09:33Z",
+          "contributionHash": "cb54520e695edc17d7f6d85f227893a376bddb140e6ce6c83977135db67b7bec9ca419932fa1e524c759afff015a3da9c0f936da69f2af5f3c732b194b49df70",
+          "zkeySha256": "c094197d6ca6192ba88add57f0eb14a72d322d265b32398043c6eb3570ed8e2e"
+        },
+        {
+          "order": 5,
+          "name": "Mihailo",
+          "participant": "Mihailo",
+          "submittedAt": "2026-09-29T09:12:28Z",
+          "contributionHash": "1753f00f9c33d60c6e4dd64e7dabfd572cb569c8f17667cbe827b77d3f6655730c523da7a45b4b139c7391e4d46e0977543635faa31189d93398acf92c6fc143",
+          "zkeySha256": "85eb92b082eb7226af5dbb916662f88b7229a3e4c9586aa59c9c849ad8834ae6"
+        },
+        {
+          "order": 6,
+          "name": "Vanja",
+          "participant": "Vanja",
+          "submittedAt": "2026-09-29T09:18:32Z",
+          "contributionHash": "8f54d1e2630982af783e1d7fb3358a71753c5fa5f8256b7544db7a0db8054787ce14157cbca7c9b5d11efb07517c97b32bcc72d898cf6baf9d422cdc3b6c5332",
+          "zkeySha256": "79c6fd6a5eff0fe5688058dcdadd8f2b2b81a094e4c0ff1ac3c1b80aa8a17995"
+        }
+      ]
+    },
+    {
+      "name": "verifyPixAggregation_2_9_30",
+      "source": "circuits/v2/instances/verifyPixAggregation_2_9_30.circom",
+      "constraints": 57163,
+      "wires": 57207,
+      "publicInputs": 55,
+      "privateInputs": 134,
+      "outputs": 12,
+      "r1cs": {
+        "file": "verifyPixAggregation_2_9_30.r1cs",
+        "sha256": "14169484b4daac9001d33769f4fe1ce75244c6e855a604a6b28d169499fff4f4",
+        "bytes": 21102340
+      },
+      "phase1": "ppot_0080_16.ptau",
+      "circuitHash": "bbd348bbca1f5e2457a490d21359a51f66be2c1d362592c493e6275e4b0730258764a7a78a33dc13afcf1bf5f0cb7050da6117088674990714b205a5fb9fec68",
+      "finalZkey": {
+        "file": "verifyPixAggregation_2_9_30_final.zkey",
+        "sha256": "7611d3ade361c02b70b27620aca12aa8c15f7c7aba352d3e7add6409974fb13d",
+        "bytes": 35144519
+      },
+      "verificationKey": {
+        "file": "circuits/verifyPixAggregation_2_9_30/verification_key.json",
+        "sha256": "6cc332e3533177e99acd419975de87f0927bb9436dce32f0d6bee9366c5f4da1"
+      },
+      "verifier": {
+        "file": "circuits/verifyPixAggregation_2_9_30/verifier.sol",
+        "sha256": "992de56c8e48bba66d06259cda0e58f25a2a9954929e10825652401a27b185c9"
+      },
+      "deployments": [
+        {
+          "network": "gnosis",
+          "address": "0x93071817925e94a4DD75a44E972c5107Df2129d6"
+        }
+      ],
+      "contributions": [
+        {
+          "order": 1,
+          "name": "Lukas",
+          "participant": "Lukas",
+          "submittedAt": "2026-09-29T09:04:31Z",
+          "contributionHash": "6c1c03ce4eb835e2e9eb924cd36fb6d4b2200b1509c0a0d4277652acada5333bc747d4c247703ad3b4d35480fd8e4b2e18e4cb042a541ed2aacfb0474f72f299",
+          "zkeySha256": "e35d0fd72af7bd517b58ff2f40e511734034602264358faee686218c5bc990ca"
+        },
+        {
+          "order": 2,
+          "name": "Tino",
+          "participant": "Tino",
+          "submittedAt": "2026-09-29T09:05:24Z",
+          "contributionHash": "139d0d1e878d3ac1c82869e871ba93dd64db841ad89a857c28e9d11dfb8f7af65e81bd05ddb1ce56cc1a462ec32dcd1990408edd626fefe47e90427de94ff38f",
+          "zkeySha256": "a57c8fa86dae4654e998869716cd882cc29b60b1ce412649a7573a3ccd0a33e3"
+        },
+        {
+          "order": 3,
+          "name": "q",
+          "participant": "Qianchen",
+          "submittedAt": "2026-09-29T09:07:20Z",
+          "contributionHash": "1b7a64e4217491da81cbbd11d00f921af059f1b4896925f378b47f6514916c1f26eb202efbc47d18b9e1ad72bdaaff63e844e8bdc8fe24f6a036bd048fc8f84d",
+          "zkeySha256": "d13e802406c3654ee1b47c17f7b933724a0d5f3524e4ea35a4222a9188880d7e"
+        },
+        {
+          "order": 4,
+          "name": "Mihailo",
+          "participant": "Mihailo",
+          "submittedAt": "2026-09-29T09:10:18Z",
+          "contributionHash": "b428cf7c011608831b0b461f5df5fe1f0b54d1a323c54f5c399df989dfb201f4bf2e31738eed6edba0065f41ab6afee53112f6cf734d24e965b8b9b31d136737",
+          "zkeySha256": "1d9b2946405f9b942b850a463afa3796ff9af66ff69b44feea752a606fdbc69b"
+        },
+        {
+          "order": 5,
+          "name": "Vanja",
+          "participant": "Vanja",
+          "submittedAt": "2026-09-29T09:13:04Z",
+          "contributionHash": "ae8dc3df9e3f3c7a518ac8daa87eedd0eac32ba4ec28af961b815f137afd05f9cb994ca22761c2513436ed1a95c24ce59f67ee0942eb15a363b958ede28972d7",
+          "zkeySha256": "fd9201e9bf241bf6c6a75f5ae45e5ff3c01fc6acd82a93c04034c61445ca2b40"
+        },
+        {
+          "order": 6,
+          "name": "lazar",
+          "participant": "Lazar",
+          "submittedAt": "2026-09-29T09:13:43Z",
+          "contributionHash": "1901939c04816f4a1bfe9c6b28f2ccd66b16befafd13f81e16aa6f016564dde839d1b81ed1cf9a381cc2678e20930554c8f5138b856dd3c4a3ebe083415b108d",
+          "zkeySha256": "7611d3ade361c02b70b27620aca12aa8c15f7c7aba352d3e7add6409974fb13d"
+        }
+      ]
+    },
+    {
+      "name": "verifyPixMultiOwnerWithdrawal_5_30",
+      "source": "circuits/v2/instances/verifyPixMultiOwnerWithdrawal_5_30.circom",
+      "constraints": 81541,
+      "wires": 81499,
+      "publicInputs": 3,
+      "privateInputs": 205,
+      "outputs": 6,
+      "r1cs": {
+        "file": "verifyPixMultiOwnerWithdrawal_5_30.r1cs",
+        "sha256": "2969677c3fac8e8beeeb63027363fa8126a5afff2c43ee5fb88739b26ea0ffac",
+        "bytes": 29096400
+      },
+      "phase1": "ppot_0080_17.ptau",
+      "circuitHash": "32b4fe16f8dd6abc45236c697831d451942587f6d91dd83024a3f4dc0bd02b7b3e36be97df621f030ad502c36592f286051686c9f3d9f0bb5f5ae82a346cbd1d",
+      "finalZkey": {
+        "file": "verifyPixMultiOwnerWithdrawal_5_30_final.zkey",
+        "sha256": "f74b9fc2be5fcdba92cd510495ed9cd0d204022f7c1cbbd4b3cae71df8ce5831",
+        "bytes": 48836491
+      },
+      "verificationKey": {
+        "file": "circuits/verifyPixMultiOwnerWithdrawal_5_30/verification_key.json",
+        "sha256": "5f00509fad5541d16b7db3f55c161fea71198a7b778c78d1cb3010f6e67f1048"
+      },
+      "verifier": {
+        "file": "circuits/verifyPixMultiOwnerWithdrawal_5_30/verifier.sol",
+        "sha256": "93da57f147ba958c6142b0d969164f612a148c62ed7ad5262b35ace0061fcaae"
+      },
+      "deployments": [
+        {
+          "network": "gnosis",
+          "address": "0x7EaE0DBaad53b2885b670499552Aa1AC3dB248CD"
+        }
+      ],
+      "contributions": [
+        {
+          "order": 1,
+          "name": "q",
+          "participant": "Qianchen",
+          "submittedAt": "2026-09-29T09:04:57Z",
+          "contributionHash": "79cac8ec43a0bd29e5c3e3df17246b267a7e95385ec86ac4776015b039f498a793fc8266f435328f1e083a0fbaac3902332e7b56f40ad3d351cad5ae27b03a22",
+          "zkeySha256": "2b30258da53098b2bde6644c58e7da4ec8c986430dac34993cfac27f6aee87cc"
+        },
+        {
+          "order": 2,
+          "name": "Lukas",
+          "participant": "Lukas",
+          "submittedAt": "2026-09-29T09:05:33Z",
+          "contributionHash": "8660b69ad09683a76b9d4931ab735e2bac7ae1a210bce795a6fd46686bc432cfecc83d69378ed14a99205880a3f58c9d7ad7a27f90d676d51af2740299358354",
+          "zkeySha256": "2d08591312b019f25905c2e5fea60b23a36a16c172364d08bdd0147cd65cd235"
+        },
+        {
+          "order": 3,
+          "name": "Tino",
+          "participant": "Tino",
+          "submittedAt": "2026-09-29T09:06:15Z",
+          "contributionHash": "8609dd8580d62f3cc688b05de0ca8dbb8095247f7bb5355b22d3c09d742586bfe5954d7588c6d4995d6faadb2450e76c98f36dbeeb60ae235dcede1aec1fbf74",
+          "zkeySha256": "6f24f775f472808e20cfa8151569b8b2efe2687e6393ab95f675e192338f110d"
+        },
+        {
+          "order": 4,
+          "name": "lazar",
+          "participant": "Lazar",
+          "submittedAt": "2026-09-29T09:10:02Z",
+          "contributionHash": "5b17567851ad64deb743e73396f3635e999f30b0bc08c9db4ffc2a180540c2e8d6e4786fd8aeb30fd23a90a5e1b3753be65df972007cfd0e0f0ac65c3347120a",
+          "zkeySha256": "3e391d9d63bdc96495d9d2a04ea8c8b04769db325a2b6bedee032ccb8f085bbb"
+        },
+        {
+          "order": 5,
+          "name": "Mihailo",
+          "participant": "Mihailo",
+          "submittedAt": "2026-09-29T09:13:40Z",
+          "contributionHash": "9b34fb94c8d90c3b3959e442acf0eb8f28922d4362e9a7c3c6d4da8fa18919440ce6df49cc4ffcbc0af1e169c014da00bb8fd219377c2c148f1177f35394a7ff",
+          "zkeySha256": "8864afb191d678dd99b7f7c75cfdca38d6bb4afeca5e619f70ba79f2860c0950"
+        },
+        {
+          "order": 6,
+          "name": "Vanja",
+          "participant": "Vanja",
+          "submittedAt": "2026-09-29T09:19:06Z",
+          "contributionHash": "ce8bfaeac499bf5ed78a767c10c5298e86d544cbfe08ed6367b110e23915dea4de3af4754c1e9c4090a01c9f7e741b09fa7d266580fadcfefd0b1f9dfcedeb22",
+          "zkeySha256": "f74b9fc2be5fcdba92cd510495ed9cd0d204022f7c1cbbd4b3cae71df8ce5831"
+        }
+      ]
+    },
+    {
+      "name": "verifyPixMultiOwnerWithdrawal_10_30",
+      "source": "circuits/v2/instances/verifyPixMultiOwnerWithdrawal_10_30.circom",
+      "constraints": 162536,
+      "wires": 162449,
+      "publicInputs": 3,
+      "privateInputs": 410,
+      "outputs": 11,
+      "r1cs": {
+        "file": "verifyPixMultiOwnerWithdrawal_10_30.r1cs",
+        "sha256": "7deeb09cf5ae34fd080794ceadc2e24bde64734edc353301bd4d3b4b82f1369b",
+        "bytes": 57899540
+      },
+      "phase1": "ppot_0080_18.ptau",
+      "circuitHash": "97d1497d420b29582d9fc3451f4c1874edae58e36f35d331bd2992957e22cc8287ac5e5835b120f10261a939e5962836e5b4fec85b545fbe3d131697f634cdd7",
+      "finalZkey": {
+        "file": "verifyPixMultiOwnerWithdrawal_10_30_final.zkey",
+        "sha256": "869080de2e351bd383e9f8f1ec84457bb6d0bf635c3f6163acf3186a982ab1ba",
+        "bytes": 97177419
+      },
+      "verificationKey": {
+        "file": "circuits/verifyPixMultiOwnerWithdrawal_10_30/verification_key.json",
+        "sha256": "e78293b4cba2fa83b64efd594a13fb02f5750207cd8a4a1e356e0fca6492b951"
+      },
+      "verifier": {
+        "file": "circuits/verifyPixMultiOwnerWithdrawal_10_30/verifier.sol",
+        "sha256": "013f29345db2572342bd05a81858d6d8006a3dda8cefb731edb129cc16b696a2"
+      },
+      "deployments": [
+        {
+          "network": "gnosis",
+          "address": "0x4c63d4b47f7034f75529137d158D8fDD713B2653"
+        }
+      ],
+      "contributions": [
+        {
+          "order": 1,
+          "name": "Lukas",
+          "participant": "Lukas",
+          "submittedAt": "2026-09-29T09:04:03Z",
+          "contributionHash": "e95986f43aa1a9c2395175c7860c4c3b4a9f860b79e822b0c572da147fadba55e2a26cd8cdb684f26c65d5471f78e802792cc7fd6ca9d5df41b75a4f42445fe8",
+          "zkeySha256": "015263a9c0363a21e928f03b87b10bea8bcc4b75bf242203b1d1b9e7588945e2"
+        },
+        {
+          "order": 2,
+          "name": "q",
+          "participant": "Qianchen",
+          "submittedAt": "2026-09-29T09:06:11Z",
+          "contributionHash": "0f91e1db981327d29a01954ed7a43ce6da18b33aeedfb7bb87b6c0d60742d3841dc9b78b93bb34401febb541c0b0b255d81b54967bde8fd0afafe530f0919ba2",
+          "zkeySha256": "e6b9d309be2142a94eb1bd6e1411c0c74ca170454da2528f35d3c03297a38f4e"
+        },
+        {
+          "order": 3,
+          "name": "Tino",
+          "participant": "Tino",
+          "submittedAt": "2026-09-29T09:07:29Z",
+          "contributionHash": "a1b0efad8c7ddb7befd26ce273c53ec0c29b3a142f61bb55cb76c310d9c096d2c044379da71729f7e676546114e9393abcd066ef0fd2c821ec0a9c391546d252",
+          "zkeySha256": "c7a61ac72770d449e631446ed07de760f6bcf80415b47142a20bfbd709f16e65"
+        },
+        {
+          "order": 4,
+          "name": "lazar",
+          "participant": "Lazar",
+          "submittedAt": "2026-09-29T09:10:58Z",
+          "contributionHash": "c4df65f3f0e045a026a9cf2f619a10cfa71ec2c829c5e6536a83f82c4c1615270770af03fa0048cc3ee04cf4da517664fca71f5321b1d4bff9a45f57c756c5c4",
+          "zkeySha256": "94667da4ba09e146c411419e8f1df7251da242a67b286a38c92e18a7fb593a83"
+        },
+        {
+          "order": 5,
+          "name": "Mihailo",
+          "participant": "Mihailo",
+          "submittedAt": "2026-09-29T09:15:38Z",
+          "contributionHash": "1c4a12ad72b1cb7c88e292530dfab72802e3f5e87bb5e5718dd680b756e562175c64dd8f09d85d4ef0f34eb299bc2436e129e48627096c9dfa7fc252d0d66c22",
+          "zkeySha256": "5f817c165bd68050dd514f5bbedf61d0ffdfb8c8c1fb6386b1611699293ba5be"
+        },
+        {
+          "order": 6,
+          "name": "Vanja",
+          "participant": "Vanja",
+          "submittedAt": "2026-09-29T09:26:35Z",
+          "contributionHash": "a469491dfb434764f08f90688bc938285f47fba84b1f6578d7abe052814a9679a48a9b11639c4ac9aa8ad992829d3b36dd6b60c70b2eb74bf609a00b1456f319",
+          "zkeySha256": "869080de2e351bd383e9f8f1ec84457bb6d0bf635c3f6163acf3186a982ab1ba"
+        }
+      ]
+    },
+    {
+      "name": "verifyPendingNotesCommitment_5_30",
+      "source": "circuits/v2/instances/verifyPendingNotesCommitment_5_30.circom",
+      "constraints": 226236,
+      "wires": 224505,
+      "publicInputs": 1,
+      "privateInputs": 157,
+      "outputs": 0,
+      "r1cs": {
+        "file": "verifyPendingNotesCommitment_5_30.r1cs",
+        "sha256": "150cc21f7bb6384a6b691a299319b86fc9bc69a361d7a52a3895f0792e5b1a44",
+        "bytes": 72529384
+      },
+      "phase1": "ppot_0080_18.ptau",
+      "circuitHash": "03f4215dc6734006e39705dde402ac0cf5cc3ec082cb6565ea263cee4800e4a20ce6c1ac36c838553265ec6705b31836ea668c6233ce6286605204ef468ca1fe",
+      "finalZkey": {
+        "file": "verifyPendingNotesCommitment_5_30_final.zkey",
+        "sha256": "5a9761127ad5d0a34c3f0b9bb11d34d13d6d68afb0089c3b74d24bcb25fa7477",
+        "bytes": 129202747
+      },
+      "verificationKey": {
+        "file": "circuits/verifyPendingNotesCommitment_5_30/verification_key.json",
+        "sha256": "a5d58011151292ed12446066681d98c8c7b705c2947081f5dea793fdb7682764"
+      },
+      "verifier": {
+        "file": "circuits/verifyPendingNotesCommitment_5_30/verifier.sol",
+        "sha256": "eb5946b0148d6c3e15ae50fcb76706b4068614719ca9f8a6757509e5435e1413"
+      },
+      "deployments": [
+        {
+          "network": "gnosis",
+          "address": "0x7e4e6dA8dfCf2460242533A1D2baE261A08DD2Dc"
+        }
+      ],
+      "contributions": [
+        {
+          "order": 1,
+          "name": "Tino",
+          "participant": "Tino",
+          "submittedAt": "2026-09-29T09:04:43Z",
+          "contributionHash": "88c4d86b6136da2febe7a350d89650111fd9e0852cd97205fa65de9ceac43da9cb7337c15d847248ceec08b2c626df3dc424f6df2fa1e87fd0d3c9c2dc6bc5e5",
+          "zkeySha256": "217930cfc46a0ae264718259480444d3c02e11a91a7685454d2dcdc99c3535ef"
+        },
+        {
+          "order": 2,
+          "name": "Lukas",
+          "participant": "Lukas",
+          "submittedAt": "2026-09-29T09:05:18Z",
+          "contributionHash": "7626938f27131b5fba0578f4a07e12d6d68d6af887d8818f1a3475f3ee063f921bda5d9995d131bf9339dbbcdaf04cd7441e8712128aea3cb19d251a99d7ed00",
+          "zkeySha256": "bcbdf9d03494a24f9984fde39e9801c0576d8106ac11258f1307fda28fa62a06"
+        },
+        {
+          "order": 3,
+          "name": "lazar",
+          "participant": "Lazar",
+          "submittedAt": "2026-09-29T09:08:28Z",
+          "contributionHash": "cce90b83a85f51d7511a1307ca562cdda9e36c21abe685c3473c734b221e60784f9174ced534aaca2f7a635a240d3d4b145d4090ec2ea27fefe369bb00129805",
+          "zkeySha256": "71d8ea3e5ed2afdc09594cac8ef4bdce4eee9ec2211d0dda9341f7f0b47dabfb"
+        },
+        {
+          "order": 4,
+          "name": "q",
+          "participant": "Qianchen",
+          "submittedAt": "2026-09-29T09:13:30Z",
+          "contributionHash": "ef3b203f590d3489b7ce29336cf726b43c1be3355aec89a0a0195ac476b0ffe712b77e7c6f2dc8209b9bc6773625694dd48a048e6005c8b339134cc6f1353a37",
+          "zkeySha256": "251e08b78e1f3f524be561468f76341f2bd3d6531ce3edc864d6ecea6a8cee77"
+        },
+        {
+          "order": 5,
+          "name": "Mihailo",
+          "participant": "Mihailo",
+          "submittedAt": "2026-09-29T09:17:59Z",
+          "contributionHash": "eeb2cc8b9dbfcda358aa666752665412903c5cf32df57f54ab4eb5c50b983a930f2648f62ec5a842c2a34c02ec7470e8d399a877a343bfec2bfd5b9f591e2611",
+          "zkeySha256": "373aa0ade32ddf1cfb9846f9f90cf0c895b8eb5760970ac4b9c9f2d06ce1cfbd"
+        },
+        {
+          "order": 6,
+          "name": "Vanja",
+          "participant": "Vanja",
+          "submittedAt": "2026-09-29T09:27:57Z",
+          "contributionHash": "2ef0c78118447ae40f505b212b2cb76eb897710945c56137f8febaa55426db72e4b733fff60b91da0b542fd509eee0da794d10adad1a80b06d4774ed8563a7bd",
+          "zkeySha256": "5a9761127ad5d0a34c3f0b9bb11d34d13d6d68afb0089c3b74d24bcb25fa7477"
+        }
+      ]
+    },
+    {
+      "name": "verifyPendingNotesCommitment_10_30",
+      "source": "circuits/v2/instances/verifyPendingNotesCommitment_10_30.circom",
+      "constraints": 391313,
+      "wires": 388476,
+      "publicInputs": 1,
+      "privateInputs": 312,
+      "outputs": 0,
+      "r1cs": {
+        "file": "verifyPendingNotesCommitment_10_30.r1cs",
+        "sha256": "e65ad1be09a3f1c1c95ee84c57d8e5c896660ea1f1cf064495887bd23fa934e3",
+        "bytes": 129861532
+      },
+      "phase1": "ppot_0080_19.ptau",
+      "circuitHash": "3e40fe327968ee0d4f7d37fb6896fd55080b8510368b75bd64914c6a3950bd16061ca3faa809d8b400c15999061886f5f133f4c0a5f51737c5130a51fcc511c3",
+      "finalZkey": {
+        "file": "verifyPendingNotesCommitment_10_30_final.zkey",
+        "sha256": "56f80d8e18b00cb13b20e26308e254a1988aeca0551be348f1470999360c948b",
+        "bytes": 227927163
+      },
+      "verificationKey": {
+        "file": "circuits/verifyPendingNotesCommitment_10_30/verification_key.json",
+        "sha256": "380a5e2e70c58cc10d6e237fab21d67a4461a3efe66e45111bb0ec2438dce6fe"
+      },
+      "verifier": {
+        "file": "circuits/verifyPendingNotesCommitment_10_30/verifier.sol",
+        "sha256": "756d7ee6361a77e52e0d7d01482286f784ba386a7a18a7adaa06939a1e4e519d"
+      },
+      "deployments": [
+        {
+          "network": "gnosis",
+          "address": "0xd48Ef81f1C069A9019F8DD959830394903AA38CB"
+        }
+      ],
+      "contributions": [
+        {
+          "order": 1,
+          "name": "Mihailo",
+          "participant": "Mihailo",
+          "submittedAt": "2026-09-29T09:09:30Z",
+          "contributionHash": "b456bd6ae07e370cc420d9865918f01063561121be36f81e2c84cda79e1f4152c1ec9505f755654c2ee1080d3ba36eab7b09a1522a702dd92d5e29c56eb5d4b3",
+          "zkeySha256": "465307b38f3721414868f9009ca2801759eaf4677e23e472c4a1417db4bee058"
+        },
+        {
+          "order": 2,
+          "name": "Lukas",
+          "participant": "Lukas",
+          "submittedAt": "2026-09-29T09:10:35Z",
+          "contributionHash": "321bfc52b7157b4ec4c36ed9177632f59f1fd893eb66f4bf283b6202462b47873b19bdd01b67d883c7f5ab628cce3898e5531255484c4b24c294332f7fe8834b",
+          "zkeySha256": "a4a5672348d8a8a0a15e8535b23f8ccdbade50bf8849e2a57f51da0c546fb38c"
+        },
+        {
+          "order": 3,
+          "name": "lazar",
+          "participant": "Lazar",
+          "submittedAt": "2026-09-29T09:13:21Z",
+          "contributionHash": "e39d5e8cb854eebf5af161ed2fd218dcfdb96e39999e5fc657aff7df64ea77e9aa82b91c0519f32c0f82fffb47e6f6e28dc25842dfe6ef1d17d42dd502a312ec",
+          "zkeySha256": "bbde6fb9605f16f8f8d8f2ca80f6e2461afd13136733acc693dbda5a33cf0552"
+        },
+        {
+          "order": 4,
+          "name": "Tino",
+          "participant": "Tino",
+          "submittedAt": "2026-09-29T09:15:29Z",
+          "contributionHash": "93aa9ba87ebe7ec3927902f35216c6e2592d1cbd87e32538d3dba4dcc9e6e0ee1c87f9e2b175bf28c801810ac4be94f5a32c733dabbc2f5492570c859db3a485",
+          "zkeySha256": "03cff03a83feab5ad5075d86dcd1175a4cf0785f0b3c4baa0d63a554d41b964d"
+        },
+        {
+          "order": 5,
+          "name": "q",
+          "participant": "Qianchen",
+          "submittedAt": "2026-09-29T09:24:24Z",
+          "contributionHash": "eab550e0bc6920b5930804bb589b704e3fe1eb8fbed4ee23a435d12393c38ca07d552d9460f1857d07fb63cfd049ee5889003fd30a49867c9c4d8ba237f3767f",
+          "zkeySha256": "7905934fa36580ab901124637f2657c5a7fc06be4ebe85c4bb56db6ad8ff174b"
+        },
+        {
+          "order": 6,
+          "name": "Vanja",
+          "participant": "Vanja",
+          "submittedAt": "2026-09-29T09:30:33Z",
+          "contributionHash": "b9b9158f6a35813f27c210ee862657fbe5e1b495645031191bde04dcc3c8d02100054214776e841a5ede34f7abf732f6d603aa0daf5623dabea2c0dea7404254",
+          "zkeySha256": "56f80d8e18b00cb13b20e26308e254a1988aeca0551be348f1470999360c948b"
+        }
+      ]
+    },
+    {
+      "name": "verifyPendingNotesCommitment_20_30",
+      "source": "circuits/v2/instances/verifyPendingNotesCommitment_20_30.circom",
+      "constraints": 691993,
+      "wires": 687256,
+      "publicInputs": 1,
+      "privateInputs": 622,
+      "outputs": 0,
+      "r1cs": {
+        "file": "verifyPendingNotesCommitment_20_30.r1cs",
+        "sha256": "b282fccb8529cfec26afb7ad5adeb71cf20563164b4d09b6bfaa5b946e6c87fc",
+        "bytes": 237248172
+      },
+      "phase1": "ppot_0080_20.ptau",
+      "circuitHash": "3378dfd6cd2e2de6cbbaf6dac2932426ec29280783299ced8bd50d9d852149ecbfc246b72e1b4318d4e14baa70bf53953bff9dd146dd01a54ea822a7162f62f5",
+      "finalZkey": {
+        "file": "verifyPendingNotesCommitment_20_30_final.zkey",
+        "sha256": "0fa6cf38a6e7907db890c1ca2deaf03b624a3ac9b7ef8a7342c1aa650a18f48f",
+        "bytes": 410684515
+      },
+      "verificationKey": {
+        "file": "circuits/verifyPendingNotesCommitment_20_30/verification_key.json",
+        "sha256": "c64b4a32b6409227ee7702e1d70bdb06d11638e6e8439664b3373659eff900bd"
+      },
+      "verifier": {
+        "file": "circuits/verifyPendingNotesCommitment_20_30/verifier.sol",
+        "sha256": "25aaf6a2fe78491f253859d4506306269e5576f894b641d386b7ae0991a886b7"
+      },
+      "deployments": [
+        {
+          "network": "gnosis",
+          "address": "0x8a3954b5a499Ca07e1A0A7D3e9fB259B3AbeDe6A"
+        }
+      ],
+      "contributions": [
+        {
+          "order": 1,
+          "name": "lazar",
+          "participant": "Lazar",
+          "submittedAt": "2026-09-29T09:07:18Z",
+          "contributionHash": "ca150218c2da7e35a39d0f2bb4270bc05acc5d464f9c89eb1e8dc2c36d4932a51aefc5d9893640311bc8d5410e4befb9679ae12c37421ed8af4dbda0d9cea41b",
+          "zkeySha256": "03a5e992aadc3475e805c7032c9d5a8a52bdb536a361588e29bf711c07d174d5"
+        },
+        {
+          "order": 2,
+          "name": "Lukas",
+          "participant": "Lukas",
+          "submittedAt": "2026-09-29T09:09:11Z",
+          "contributionHash": "cecc4d5155db355fc876309ff4558c737fb40a4329dfa627fcd398ad59cc314e858cfc46519831f53a92ff40672187fe0c759b4d0822f3c61819d0128c981f63",
+          "zkeySha256": "7894646d67efa8419c761115bf8479c0f71221363f86671f23d7d8410d96959b"
+        },
+        {
+          "order": 3,
+          "name": "Tino",
+          "participant": "Tino",
+          "submittedAt": "2026-09-29T09:13:01Z",
+          "contributionHash": "c0245ff12df0aa150d2f9192a18c2fbbd2c2f512ab8f6995fa886af773639743f0a5af610b0e06d74a9d9703ea3097d2bc1a9734b7622e670ba2926d25cc73ed",
+          "zkeySha256": "5cdecaca49151fc2e1e3563d4164cfb43c6dd8b115d00ee02df65e7537728ca5"
+        },
+        {
+          "order": 4,
+          "name": "Vanja",
+          "participant": "Vanja",
+          "submittedAt": "2026-09-29T09:17:30Z",
+          "contributionHash": "8f50657cc43a96400088c2c9c5790c2903d51243ddf0bc319e05a53823d7f9616651ded4e645e12e7fdc9a2aa42a8bc1bcbecd09295125ae738dc117558a866d",
+          "zkeySha256": "325f81117e46b8780680b85a448bb06978fc487cf18f5bd9f1ab77bdb97c6607"
+        },
+        {
+          "order": 5,
+          "name": "Mihailo",
+          "participant": "Mihailo",
+          "submittedAt": "2026-09-29T09:26:20Z",
+          "contributionHash": "f1012777557793cf7812a54801cee2c47925fde9b36d4b575fd96b93a666e3545988bf078318fc9138ce767c9af9435c44bafecb1437df628b2b351b0970fb03",
+          "zkeySha256": "5b07eb89ca1e36b9db9a2e09c7e1f51d5b7ed653f74fd88d7bad1b34109eccc4"
+        },
+        {
+          "order": 6,
+          "name": "q",
+          "participant": "Qianchen",
+          "submittedAt": "2026-09-29T09:42:15Z",
+          "contributionHash": "5b2c40c430b854770b97b5ca82c3c15f358b29d7c38b00900455995f2b51d3d1d2046fda6e92ac008d0707c087ad05ffcb7294f10c38f19ab32602a2e8dc2909",
+          "zkeySha256": "0fa6cf38a6e7907db890c1ca2deaf03b624a3ac9b7ef8a7342c1aa650a18f48f"
+        }
+      ]
+    },
+    {
+      "name": "verifyPendingNotesCommitment_50_30",
+      "source": "circuits/v2/instances/verifyPendingNotesCommitment_50_30.circom",
+      "constraints": 1594033,
+      "wires": 1583596,
+      "publicInputs": 1,
+      "privateInputs": 1552,
+      "outputs": 0,
+      "r1cs": {
+        "file": "verifyPendingNotesCommitment_50_30.r1cs",
+        "sha256": "dbe303161a71ce23e19876e45edee5e8503c372d25bd26802e0f974e7d941dbb",
+        "bytes": 559408092
+      },
+      "phase1": "ppot_0080_21.ptau",
+      "circuitHash": "25bc9a404dc511a43dd3d56577adc9f17a4fc89b7f6743b4f3e77b63e4c3095a0fbd6d2cafb366af574c1645c8edaef1c515d1ef0815cdb661056ccc9e5ca27e",
+      "finalZkey": {
+        "file": "verifyPendingNotesCommitment_50_30_final.zkey",
+        "sha256": "4efbf91022c84c81caf708e947f178814f9b2adc75e96550f404abcb62e6d494",
+        "bytes": 925402139
+      },
+      "verificationKey": {
+        "file": "circuits/verifyPendingNotesCommitment_50_30/verification_key.json",
+        "sha256": "ba306fd5f3181e02381f9b352f112c4af6d554e5c5374f7a35210eda5230451f"
+      },
+      "verifier": {
+        "file": "circuits/verifyPendingNotesCommitment_50_30/verifier.sol",
+        "sha256": "44e8c0117553ba0b1ac40c5fb43569c3508b62ae30118edcb26a3878f0141adb"
+      },
+      "deployments": [
+        {
+          "network": "gnosis",
+          "address": "0x3A218c52344d28ddCa4DDff8e4D6D356Bc3fd460"
+        }
+      ],
+      "contributions": [
+        {
+          "order": 1,
+          "name": "Vanja",
+          "participant": "Vanja",
+          "submittedAt": "2026-09-29T09:12:25Z",
+          "contributionHash": "1fc77d82fad379c3072178657dfe04722cce1bd0c87d3d39ff84295efd70295946700ee196ba2d80f49909d77cbbc981bdae12254ccaedb4f8978de7e1af3baa",
+          "zkeySha256": "f86ba5de5785eaf5dc79de1227bd98115d873e1c4e27b1309cfe9ab82c7b7c25"
+        },
+        {
+          "order": 2,
+          "name": "Lukas",
+          "participant": "Lukas",
+          "submittedAt": "2026-09-29T09:16:37Z",
+          "contributionHash": "7a8e674cfad7d02d4b8567ef923ceecf4588e7da24635ca511abcfcf075f92068339e7fb74d5ce63b74ce227bf48f312e90479fbdfb9184ca597ed3e472ed860",
+          "zkeySha256": "76debe240c25dd098836df3e8bb078ed0832858356ed9acd7a2e5a250e724792"
+        },
+        {
+          "order": 3,
+          "name": "lazar",
+          "participant": "Lazar",
+          "submittedAt": "2026-09-29T09:25:30Z",
+          "contributionHash": "76ef55d9fd538f0f516b08d7a5b1e16c4968d2183db6091b1d26ea6443ca928eac15b36180eb84b4377000c1daf94ed08543a07780fc89e8b942f349a6dec9ff",
+          "zkeySha256": "7693f4cb63e33f5d0483236ff85b877e01f56cdc5de994d387cac1ac677bc078"
+        },
+        {
+          "order": 4,
+          "name": "Tino",
+          "participant": "Tino",
+          "submittedAt": "2026-09-29T09:33:50Z",
+          "contributionHash": "d2d36b265fd834c8ebc9c4493f277f69b9b965d954573bddbdb25449858868fa4b7b3d3f30eae5785396b4a735c4d2f1090c012392d04cd79c713bdf9725a82c",
+          "zkeySha256": "5f9954bb591db86e0cdfa70adf64df626acc35d9e30c6acf77427c24ea1ead5f"
+        },
+        {
+          "order": 5,
+          "name": "Mihailo",
+          "participant": "Mihailo",
+          "submittedAt": "2026-09-29T09:49:49Z",
+          "contributionHash": "a72cbc25a08c77c36f44c7593e65268bd0867fa16ecd9fd8738e356156a79442302300d37093522bf5788e237b45b101ce7817b8e90e578546b184fd61a6bba6",
+          "zkeySha256": "30c1cc23b504e17e4b86d31d2b4330118177671d9dac21404769093e5b095135"
+        },
+        {
+          "order": 6,
+          "name": "q",
+          "participant": "Qianchen",
+          "submittedAt": "2026-09-29T10:25:05Z",
+          "contributionHash": "fda6d9f73dc354013dbef8d9d43f2ad094b31d375b403df079939ffcfea5432283c47e925f1a5854f79bdc75a2464aed77b6860e7660c3d37c51f9abb1e4017c",
+          "zkeySha256": "4efbf91022c84c81caf708e947f178814f9b2adc75e96550f404abcb62e6d494"
+        }
+      ]
+    }
+  ]
+}
