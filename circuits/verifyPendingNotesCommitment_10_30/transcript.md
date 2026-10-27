@@ -1,0 +1,18 @@
+# verifyPendingNotesCommitment_10_30
+
+- Ceremony: `v1`
+- Phase 1 file: `ppot_0080_19.ptau`
+- Circuit hash: `3e40fe32 7968ee0d 4f7d37fb 6896fd55 080b8510 368b75bd 64914c6a 3950bd16 061ca3fa a809d8b4 00c15999 061886f5 f133f4c0 a5f51737 c5130a51 fcc511c3`
+- Final zkey SHA-256: `56f80d8e18b00cb13b20e26308e254a1988aeca0551be348f1470999360c948b`
+
+| # | Participant (name in zkey) | Submitted (UTC) | Contribution hash | SHA-256 of zkey |
+| --: | :-- | :-- | :-- | :-- |
+| 1 | Mihailo | 2026-09-29 09:09:30 | `b456bd6a e07e370c c420d986 5918f010 63561121 be36f81e 2c84cda7 9e1f4152 c1ec9505 f755654c 2ee1080d 3ba36eab 7b09a152 2a702dd9 2d5e29c5 6eb5d4b3` | `465307b38f3721414868f9009ca2801759eaf4677e23e472c4a1417db4bee058` |
+| 2 | Lukas | 2026-09-29 09:10:35 | `321bfc52 b7157b4e c4c36ed9 177632f5 9f1fd893 eb66f4bf 283b6202 462b4787 3b19bdd0 1b67d883 c7f5ab62 8cce3898 e5531255 484c4b24 c294332f 7fe8834b` | `a4a5672348d8a8a0a15e8535b23f8ccdbade50bf8849e2a57f51da0c546fb38c` |
+| 3 | Lazar (`lazar`) | 2026-09-29 09:13:21 | `e39d5e8c b854eebf 5af161ed 2fd218dc fdb96e39 999e5fc6 57aff7df 64ea77e9 aa82b91c 0519f32c 0f82fffb 47e6f6e2 8dc25842 dfe6ef1d 17d42dd5 02a312ec` | `bbde6fb9605f16f8f8d8f2ca80f6e2461afd13136733acc693dbda5a33cf0552` |
+| 4 | Tino | 2026-09-29 09:15:29 | `93aa9ba8 7ebe7ec3 927902f3 5216c6e2 592d1cbd 87e32538 d3dba4dc c9e6e0ee 1c87f9e2 b175bf28 c801810a c4be94f5 a32c733d abbc2f54 92570c85 9db3a485` | `03cff03a83feab5ad5075d86dcd1175a4cf0785f0b3c4baa0d63a554d41b964d` |
+| 5 | Qianchen (`q`) | 2026-09-29 09:24:24 | `eab550e0 bc6920b5 930804bb 589b704e 3fe1eb8f bed4ee23 a435d123 93c38ca0 7d552d94 60f1857d 07fb63cf d049ee58 89003fd3 0a49867c 9c4d8ba2 37f3767f` | `7905934fa36580ab901124637f2657c5a7fc06be4ebe85c4bb56db6ad8ff174b` |
+| 6 | Vanja | 2026-09-29 09:30:33 | `b9b9158f 6a35813f 27c210ee 862657fb e5e1b495 64503119 1bde04dc c3c8d021 00054214 776e841a 5ede34f7 abf732f6 d603aa0d af5623da bea2c0de a7404254` | `56f80d8e18b00cb13b20e26308e254a1988aeca0551be348f1470999360c948b` |
+
+Hashes are the Blake2b-512 values `snarkjs zkey verify` prints, word by word. The last zkey is the
+final zkey.

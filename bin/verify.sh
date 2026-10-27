@@ -2,9 +2,9 @@
 # verify.sh — check the ceremony end to end from public inputs.
 #
 # For every circuit in circuits.json this
-#   1. fetches <circuit>.r1cs and <circuit>_final.zkey (release assets) and the
-#      circuit's Phase 1 .ptau (PSE Perpetual Powers of Tau), and checks each
-#      against the SHA-256 recorded in circuits.json;
+#   1. fetches <circuit>.r1cs and <circuit>_final.zkey (assets of the release
+#      of the circuit's ceremony) and the circuit's Phase 1 .ptau (PSE Perpetual
+#      Powers of Tau), and checks each against the SHA-256 recorded in circuits.json;
 #   2. runs `snarkjs zkey verify`, which rebuilds the initial zkey from the
 #      r1cs and the ptau and checks every contribution in the chain;
 #   3. compares the circuit hash and every contribution name and hash snarkjs
@@ -12,7 +12,7 @@
 #   4. re-exports the verification key and the Solidity verifier from the
 #      final zkey and compares them with the files under circuits/.
 #
-#   bin/verify.sh                                  # every circuit, about 8 GB of downloads
+#   bin/verify.sh                                  # every circuit, about 9 GB of downloads
 #   bin/verify.sh --only verifySingleWithdrawal_2_30
 #   bin/verify.sh --cache /some/dir                # where downloads are kept, default ./cache
 #
@@ -46,7 +46,6 @@ if [ -n "${SNARKJS:-}" ]; then SNARKJS_CMD=("$SNARKJS"); else SNARKJS_CMD=(npx -
 
 WORK="${CACHE}/work"
 mkdir -p "$WORK"
-BASE_URL="$(jq -r '.ceremony.assetsBaseUrl' "$MANIFEST")"
 
 sha256_of() { "${SHA256[@]}" "$1" | cut -d' ' -f1; }
 
@@ -67,15 +66,16 @@ fetch() {
 strip_ansi() { sed $'s/\x1b\\[[0-9;]*m//g'; }
 
 verify_circuit() {
-  local name="$1" c ptau_file r1cs zkey ptau log
+  local name="$1" c base_url ptau_file r1cs zkey ptau log
   c="$(jq -c --arg n "$name" '.circuits[] | select(.name == $n)' "$MANIFEST")"
+  base_url="$(jq -r --arg r "$(jq -r '.ceremony' <<<"$c")" '.ceremonies[$r].assetsBaseUrl' "$MANIFEST")"
   ptau_file="$(jq -r '.phase1' <<<"$c")"
   r1cs="${CACHE}/$(jq -r '.r1cs.file' <<<"$c")"
   zkey="${CACHE}/$(jq -r '.finalZkey.file' <<<"$c")"
   ptau="${CACHE}/${ptau_file}"
 
-  fetch "${BASE_URL}/$(basename "$r1cs")" "$r1cs" "$(jq -r '.r1cs.sha256' <<<"$c")" || return 1
-  fetch "${BASE_URL}/$(basename "$zkey")" "$zkey" "$(jq -r '.finalZkey.sha256' <<<"$c")" || return 1
+  fetch "${base_url}/$(basename "$r1cs")" "$r1cs" "$(jq -r '.r1cs.sha256' <<<"$c")" || return 1
+  fetch "${base_url}/$(basename "$zkey")" "$zkey" "$(jq -r '.finalZkey.sha256' <<<"$c")" || return 1
   fetch "$(jq -r --arg f "$ptau_file" '.phase1[$f].url' "$MANIFEST")" "$ptau" \
     "$(jq -r --arg f "$ptau_file" '.phase1[$f].sha256' "$MANIFEST")" || return 1
   echo "   r1cs, final zkey and ${ptau_file} have the recorded SHA-256"
